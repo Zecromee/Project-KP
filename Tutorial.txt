@@ -1,0 +1,82 @@
+====================================================================
+           PANDUAN STEP-BY-STEP MENJALANKAN PROJECT WPCL
+         (Backend Laravel + Database Laragon + Flutter App)
+====================================================================
+
+--------------------------------------------------------------------
+LANGKAH 1: MENJALANKAN DATABASE (LARAGON)
+--------------------------------------------------------------------
+1. Buka aplikasi Laragon di laptop Anda.
+2. Klik tombol "Start All" (pastikan modul MySQL aktif / berjalan).
+3. Pastikan database bernama `wpcl` sudah ada di phpMyAdmin / HeidiSQL.
+
+
+--------------------------------------------------------------------
+LANGKAH 2: MENJALANKAN BACKEND LARAVEL (wpcl-api)
+--------------------------------------------------------------------
+1. Buka Terminal / PowerShell / Command Prompt baru.
+2. Masuk ke folder backend wpcl-api:
+   cd C:\Users\Daniel\OneDrive\Desktop\Project\wpcl-api
+
+3. (Opsional - jika database belum termigrasi/terisi seeder):
+   php artisan migrate
+   php artisan db:seed --class=SaranaSeeder
+
+4. Jalankan server Laravel dengan perintah:
+   php artisan serve --host=0.0.0.0 --port=8000
+
+5. Biarkan terminal ini tetap terbuka dan berjalan.
+
+
+--------------------------------------------------------------------
+LANGKAH 3: CEK IP LAPTOP & SESUAIKAN DI FLUTTER (JIKA PERLU)
+--------------------------------------------------------------------
+1. Buka terminal baru, ketik:
+   ipconfig
+2. Cari "IPv4 Address" pada adapter Wi-Fi atau Ethernet yang aktif 
+   (misalnya: 172.29.128.1 atau 192.168.1.x).
+3. Buka file di project Flutter:
+   wpcl_app/lib/api/api_service.dart
+4. Pastikan baris baseUrl sudah sesuai dengan IP laptop Anda:
+   static const String baseUrl = "http://<IP_LAPTOP_ANDA>:8000/api";
+   (Contoh: "http://172.29.128.1:8000/api")
+5. Simpan file (Ctrl + S).
+
+
+--------------------------------------------------------------------
+LANGKAH 4: MENJALANKAN APLIKASI FLUTTER (wpcl_app)
+--------------------------------------------------------------------
+Opsi A (Melalui Android Studio):
+1. Buka project folder `C:\Users\Daniel\OneDrive\Desktop\Project` di Android Studio.
+2. Buka Device Manager di Android Studio, lalu jalankan Emulator Android (misal: sdk gphone64).
+3. Pilih device emulator yang sedang aktif di target device dropdown.
+4. Buka file `lib/main.dart` dan klik tombol Run (ikon Segitiga Hijau ▶️).
+
+Opsi B (Melalui Terminal / PowerShell):
+1. Pastikan Emulator Android sudah menyala.
+2. Buka Terminal di folder `wpcl_app`:
+   cd C:\Users\Daniel\OneDrive\Desktop\Project\wpcl_app
+3. Jalankan aplikasi dengan perintah:
+   flutter run
+
+
+--------------------------------------------------------------------
+LANGKAH 5: ALUR PENGUJIAN FITUR PADA APLIKASI
+--------------------------------------------------------------------
+1. Di halaman Home, pilih menu "Pemeriksaan Baru".
+2. Isi Nama Petugas dan NIPP.
+3. Pilih Kereta (contoh: Argo Sindoro / Argo Muria / Lodaya).
+4. Sistem akan otomatis memuat dan menampilkan seluruh nomor sarana (gerbong)
+   milik kereta tersebut tanpa perlu mengetik manual.
+5. Klik tombol "Mulai Pemeriksaan".
+6. Lakukan checklist untuk setiap gerbong:
+   - CCTV: CCTV Berfungsi & CCTV Terbackup
+   - PIDS: PIDS Luar Sisi A, PIDS Luar Sisi E, PIDS Dalam TD Kecil, PIDS Dalam TD Besar
+   - WiFi: WiFi Berfungsi
+   - Catatan (opsional)
+   - Pilih status: Baik / Rusak / Tiada
+7. Klik "Lanjut ke Pemeriksaan Locotrack", pilih status Locotrack & isi catatan.
+8. Klik "Simpan Pemeriksaan" (data tersimpan ke database & PDF otomatis digenerate).
+9. Cek menu "Riwayat Pengecekan" untuk melihat daftar pemeriksaan, detail tabel,
+   dan opsi "Cetak Ulang PDF".
+====================================================================

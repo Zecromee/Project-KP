@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Pemeriksaan WPCL</title>
+</head>
+<body>
+
+<h2>Test API Pemeriksaan</h2>
+
+<button onclick="kirimData()">Kirim Data</button>
+
+<pre id="hasil"></pre>
+
+<script>
+
+async function kirimData() {
+
+    const data = {
+
+        nama_petugas: "Maria",
+
+        nipp: "123456789",
+
+        id_kereta: 1,
+
+        tanggal: "2026-07-15",
+
+        business_area: "DAOP 6",
+
+        no_ref: "WPCL-001",
+
+        locotrack: "B",
+
+        catatan: "Locotrack normal",
+
+        detail: [
+
+            {
+
+                id_sarana: 1,
+
+                urutan: 1,
+
+                pids_luar: "B",
+
+                pids_dalam: "B",
+
+                cctv: "B",
+
+                wifi: "B",
+
+                backup: "B",
+
+                sisi_a: "B",
+
+                sisi_e: "B",
+
+                td_kecil: "B",
+
+                td_besar: "B",
+
+                keterangan: "Normal"
+
+            },
+
+            {
+
+                id_sarana: 2,
+
+                urutan: 2,
+
+                pids_luar: "R",
+
+                pids_dalam: "B",
+
+                cctv: "B",
+
+                wifi: "R",
+
+                backup: "B",
+
+                sisi_a: "B",
+
+                sisi_e: "B",
+
+                td_kecil: "B",
+
+                td_besar: "B",
+
+                keterangan: "WiFi mati"
+
+            }
+
+        ]
+
+    };
+
+    const response = await fetch('/api/pemeriksaan', {
+
+        method: 'POST',
+
+        headers: {
+
+            'Content-Type': 'application/json',
+
+            'Accept': 'application/json'
+
+        },
+
+        body: JSON.stringify(data)
+
+    });
+
+    const result = await response.json();
+
+    document.getElementById("hasil").textContent =
+        JSON.stringify(result, null, 4);
+
+}
+
+</script>
+
+</body>
+</html>

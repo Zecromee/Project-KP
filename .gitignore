@@ -1,0 +1,38 @@
+# =========================
+# WPCL API - Laravel
+# =========================
+wpcl-api/.env
+wpcl-api/vendor/
+wpcl-api/node_modules/
+wpcl-api/.vercel/
+
+# =========================
+# WPCL APP - Flutter
+# =========================
+wpcl_app/.dart_tool/
+wpcl_app/build/
+wpcl_app/.idea/
+wpcl_app/android/.gradle/
+wpcl_app/android/local.properties
+wpcl_app/ios/Flutter/ephemeral/
+wpcl_app/linux/flutter/ephemeral/
+wpcl_app/macos/Flutter/ephemeral/
+wpcl_app/windows/flutter/ephemeral/
+
+# Android generated files
+wpcl_app/android/app/debug/
+wpcl_app/android/app/profile/
+wpcl_app/android/app/release/
+
+# =========================
+# IDE
+# =========================
+.idea/
+*.iml
+
+# =========================
+# Other
+# =========================
+cloudflared.exe
+.DS_Store
+Thumbs.db

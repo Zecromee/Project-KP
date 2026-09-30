@@ -1,0 +1,109 @@
+================================================================================
+           PANDUAN LENGKAP CARA MENJALANKAN SISTEM WPCL (VERSI TERBARU)
+            (Workstation Passenger Check List - Depo Kereta Yogyakarta)
+================================================================================
+
+Struktur Project:
+1. Backend & Web Admin : C:\Users\Daniel\OneDrive\Desktop\Project\wpcl-api (Laravel)
+2. Frontend Mobile     : C:\Users\Daniel\OneDrive\Desktop\Project\wpcl_app (Flutter)
+3. Database MySQL      : Laragon (Nama Database: `wpcl`, User: `root`, Password: kosong)
+4. Lokasi File APK Jadi: C:\Users\Daniel\OneDrive\Desktop\Project\wpcl_app\build\app\outputs\flutter-apk\app-release.apk
+
+================================================================================
+LANGKAH 1: PERSIAPAN DATABASE (LARAGON)
+================================================================================
+1. Buka aplikasi Laragon di laptop Anda.
+2. Klik tombol "Start All" (Pastikan Apache dan MySQL berwarna hijau / aktif).
+
+================================================================================
+LANGKAH 2: JALANKAN SERVER BACKEND & HUBUNGI KE HP (PILIH METODE 1 ATAU 2)
+================================================================================
+
+--------------------------------------------------------------------------------
+METODE 1: 1 WI-FI / HOTSPOT YANG SAMA (SANGAT DIREKOMENDASIKAN & PALING STABIL)
+--------------------------------------------------------------------------------
+Gunakan metode ini jika HP dan Laptop tersambung ke 1 jaringan Wi-Fi yang sama
+(atau Laptop tersambung ke Hotspot HP Anda).
+
+1. Di Laptop, buka Terminal / PowerShell:
+   cd C:\Users\Daniel\OneDrive\Desktop\Project\wpcl-api
+   php artisan serve --host=0.0.0.0 --port=8000
+
+2. Di HP Android Anda:
+   - Buka aplikasi "WPCL".
+   - Tekan ikon Pengaturan Server (⚙️) di pojok kanan atas layar utama.
+   - Tekan tombol "Reset Wi-Fi" (otomatis terisi: http://192.168.100.25:8000/api).
+   - Tekan "Simpan".
+   - Selesai! Klik "Mulai Pemeriksaan", semua data kereta langsung termuat lancar.
+
+--------------------------------------------------------------------------------
+METODE 2: CLOUDFLARE ONLINE TUNNEL (BEDA JARINGAN / PAKET DATA SELULER 4G/5G)
+--------------------------------------------------------------------------------
+Gunakan metode ini jika HP menggunakan paket data kartu seluler dan berada di luar
+jaringan Wi-Fi laptop Anda.
+
+1. Di Laptop, buka Terminal / PowerShell:
+   cd C:\Users\Daniel\OneDrive\Desktop\Project\wpcl-api
+   php artisan serve --port=8000
+
+2. Di Laptop, buka folder Project lalu KLIK 2X file:
+   👉 `START_ONLINE_TUNNEL.bat`
+   
+   Tunggu 5 detik, di layar hitam akan muncul kotak link HTTPS publik Anda, contoh:
+   https://cheaper-berlin-many-mills.trycloudflare.com
+   (Salin / copy link tersebut).
+
+3. Di HP Android Anda:
+   - Buka aplikasi "WPCL".
+   - Tekan ikon Pengaturan Server (⚙️) di pojok kanan atas.
+   - Tempel link tersebut (misal: https://cheaper-berlin-many-mills.trycloudflare.com/api).
+   - Tekan "Simpan".
+   - Selesai! Aplikasi HP langsung terhubung secara online dari mana saja.
+
+================================================================================
+LANGKAH 3: MENGAKSES WEBSITE ADMIN PORTAL
+================================================================================
+Buka Google Chrome di laptop atau HP, lalu akses:
+👉 http://localhost:8000  (atau http://192.168.100.25:8000)
+
+Fitur-Fitur Web Admin Portal:
+1. Dashboard (/dashboard):
+   - Ringkasan statistik harian, persentase kondisi sarana CCTV/PIDS/WiFi/Locotrack,
+     dan tabel 5 pemeriksaan terbaru.
+2. Riwayat & Monitoring (/pemeriksaan):
+   - Tabel riwayat lengkap dengan filter Kereta, Rentang Tanggal, dan Status Locotrack.
+   - Tombol Aksi: Lihat Detail (Mata), Edit Data (Pensil), Cetak PDF (Printer), Hapus.
+3. Edit Data Pemeriksaan (/pemeriksaan/{id}/edit):
+   - Mengoreksi data identitas petugas, pejabat penandatangan, status locotrack,
+     serta status fasilitas tiap gerbong langsung dari website.
+4. Cetak / Export PDF Resmi (/pemeriksaan/{id}/print):
+   - Layout resmi A4 Landscape dengan Logo KAI asli.
+   - Tabel hasil pemeriksaan 100% Fit ke sisi kanan (tanpa spasi kosong).
+   - Status tertulis lengkap "Baik / Rusak / Tiada".
+   - Tanda tangan ganda (Mengetahui di kiri, Petugas di kanan).
+5. Master Pejabat Penandatangan (/pejabat):
+   - Kelola data Manager IT / Asmen IT Support untuk tanda tangan dokumen.
+6. Master Stamformasi & Fitur Import (/stamformasi):
+   - Import formasi kereta otomatis dari Excel / CSV dengan fitur Auto Transpose.
+
+================================================================================
+CARA MEMASANG / MENGIRIM FILE APK KE HP LAIN (BEBAS KABEL DATA)
+================================================================================
+1. File APK installer yang sudah jadi berada di:
+   📂 C:\Users\Daniel\OneDrive\Desktop\Project\wpcl_app\build\app\outputs\flutter-apk\app-release.apk
+
+2. Kirim file `app-release.apk` tersebut ke HP Anda atau HP penguji via:
+   - WhatsApp Web (kirim sebagai Dokumen ke nomor sendiri)
+   - Google Drive
+   - Bluetooth
+
+3. Buka file di HP lalu klik "Install".
+
+================================================================================
+CHEAT SHEET PERINTAH PENTING TERMINAL
+================================================================================
+- Menjalankan Backend Lokal : php artisan serve --host=0.0.0.0 --port=8000
+- Menjalankan Migrasi DB   : php artisan migrate
+- Mem-build Ulang File APK : cd wpcl_app && flutter build apk --release
+- Menjalankan Debug Mobile : cd wpcl_app && flutter run
+================================================================================

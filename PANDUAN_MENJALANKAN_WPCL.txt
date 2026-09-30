@@ -1,0 +1,96 @@
+﻿================================================================
+    PANDUAN MENJALANKAN APLIKASI WPCL
+    (Update: 27 Agustus 2026 | IP: 192.168.100.25)
+================================================================
+
+PERSYARATAN:
+  - Laragon (MySQL running)
+  - PHP (via Laragon)
+  - Perangkat Android terkoneksi ke Wi-Fi yang sama
+
+================================================================
+  LANGKAH 1 — START LARAGON (DATABASE)
+================================================================
+
+1. Buka Laragon
+2. Klik [Start All]
+3. Pastikan MySQL running (warna hijau)
+   Database: wpcl | User: root | Password: (kosong)
+
+================================================================
+  LANGKAH 2 — JALANKAN LARAVEL API (Backend)
+================================================================
+
+Buka CMD atau Terminal baru, jalankan:
+
+  cd C:\Users\Daniel\OneDrive\Desktop\Project\wpcl-api
+  php artisan serve --host=0.0.0.0 --port=8000
+
+API tersedia di:
+  - Dari laptop : http://127.0.0.1:8000
+  - Dari HP     : http://192.168.100.25:8000
+
+Jangan tutup terminal ini!
+
+================================================================
+  LANGKAH 3 — AKSES WEBSITE ADMIN
+================================================================
+
+Buka browser laptop, ketik:
+  http://127.0.0.1:8000
+
+Dari browser HP (pastikan 1 Wi-Fi):
+  http://192.168.100.25:8000
+
+================================================================
+  LANGKAH 4 — APLIKASI ANDROID
+================================================================
+
+Kirim WPCL_App.apk ke HP → Install → Buka aplikasi
+Tap ikon ⚙️ (kanan atas) → Ubah URL ke:
+  http://192.168.100.25:8000
+Tap Simpan → selesai!
+
+================================================================
+  LANGKAH 5 — GANTI IP (jika Wi-Fi berpindah)
+================================================================
+
+Buka CMD → ketik: ipconfig
+Lihat IPv4 Address di bagian Wi-Fi adapter
+
+Di app Android: tap ⚙️ → ganti URL → Simpan
+Di website: selalu akses dari laptop pakai 127.0.0.1
+
+================================================================
+  HALAMAN WEBSITE YANG ADA
+================================================================
+
+  /                → Dashboard
+  /pemeriksaan     → Riwayat Pemeriksaan (lihat, edit, hapus, cetak)
+  /stamformasi     → Master Stamformasi
+                     (tambah/edit/hapus sarana, hapus KA, import Excel)
+  /pejabat         → Master Pejabat Penandatangan
+
+================================================================
+  CARA CETAK PDF
+================================================================
+
+1. Buka detail pemeriksaan
+2. Klik tombol Printer/Cetak
+3. Dialog print muncul OTOMATIS
+4. Pilih Save as PDF
+5. Klik Save
+
+================================================================
+  TROUBLESHOOTING
+================================================================
+
+HP tidak terhubung?
+  → Pastikan HP & laptop 1 Wi-Fi
+  → Cek terminal, pastikan php artisan serve masih berjalan
+  → Cek IP dengan ipconfig, update di ⚙️ app
+
+Error 500 / DB error?
+  → Laragon → klik Start All → pastikan MySQL hijau
+
+================================================================

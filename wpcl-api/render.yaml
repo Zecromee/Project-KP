@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: wpcl-api
+    runtime: php
+    plan: free
+    buildCommand: |
+      composer install --no-dev --no-interaction --prefer-dist
+      php artisan key:generate --force
+      touch database/database.sqlite
+      php artisan migrate --force
+      php artisan config:cache
+      php artisan route:cache
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: LOG_CHANNEL
+        value: stack
+      - key: LOG_LEVEL
+        value: error
+      - key: SESSION_DRIVER
+        value: file
+      - key: CACHE_STORE
+        value: file
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /opt/render/project/src/database/database.sqlite
+      - key: API_TOKEN
+        value: wpcl_prod_a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6

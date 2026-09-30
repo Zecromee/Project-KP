@@ -1,0 +1,37 @@
+================================================================================
+              CONTOH DATA STAMFORMASI UNTUK FITUR IMPORT (SIAP COPY-PASTE)
+================================================================================
+
+Berikut adalah data formasi rangkaian kereta api yang siap Anda salin (copy)
+dan tempel (paste) ke Web Admin menu "Import Stamformasi" (http://localhost:8000/stamformasi/import).
+
+--------------------------------------------------------------------------------
+OPSI 1: FORMAT HORISONTAL (LANGSUNG COPY DARI TABEL EXCEL / TSV)
+--------------------------------------------------------------------------------
+Blok dan salin seluruh baris di bawah ini, lalu tempelkan ke kolom teks import di Web Admin:
+
+KA 43 / 44 / 45	Taksaka YK	YK-GMR / GMR-YK / YK-GMR	07.30 - 13.35 / 14.00 - 20.10 / 21.05 - 03.15	08-Jul-26	P SS NG. 0 23 04 Yk	K1lux SS NG. 0 24 04	K1lux SS NG. 0 24 03	K1 SS NG. 0 23 38	K1 SS NG. 0 23 26	K1 SS NG. 0 23 29	K1 SS NG. 0 23 40	K1 SS NG. 0 23 28	M1 SS NG. 0 24 12	K1 SS NG. 0 24 20 Jak	K1 SS NG. 0 23 39	K1 SS NG. 0 23 37
+KA 7 / 8	Argo Lawu	SLO-GMR / GMR-SLO	08.30 - 15.35 / 20.45 - 03.49	08-Jul-26	P SS NG. 0 23 01 Slo	K1lux SS NG. 0 23 01	K1 SS NG. 0 23 01	K1 SS NG. 0 23 02	K1 SS NG. 0 23 03	K1 SS NG. 0 23 04	M1 SS NG. 0 23 01	K1 SS NG. 0 23 05	K1 SS NG. 0 23 06	K1 SS NG. 0 23 07	K1 SS NG. 0 23 08
+KA 91 / 92	Lodaya	SLO-BD / BD-SLO	07.00 - 15.30 / 19.00 - 03.30	08-Jul-26	P 0 19 01 Slo	K1 SS. 0 19 01	K1 SS. 0 19 02	K1 SS. 0 19 03	K1 SS. 0 19 04	M1 SS. 0 19 01	K3 SS. 0 19 01	K3 SS. 0 19 02	K3 SS. 0 19 03	K3 SS. 0 19 04
+KA 175 / 176	Sancaka	YK-SGU / SGU-YK	06.45 - 10.45 / 16.40 - 20.40	08-Jul-26	MP3 0 18 01 Yk	K1 0 18 01	K1 0 18 02	K1 0 18 03	K1 0 18 04	K3 0 18 01	K3 0 18 02	K3 0 18 03	K3 0 18 04
+KA 257B / 258B	Progo	LPN-PSE / PSE-LPN	15.10 - 23.45 / 22.30 - 07.10	08-Jul-26	MP3 SS NG. 0 24 01 Yk	K3 SS NG. 0 24 01	K3 SS NG. 0 24 02	K3 SS NG. 0 24 03	K3 SS NG. 0 24 04	K3 SS NG. 0 24 05	K3 SS NG. 0 24 06	K3 SS NG. 0 24 07	K3 SS NG. 0 24 08
+
+--------------------------------------------------------------------------------
+OPSI 2: FORMAT CSV DENGAN TITIK KOMA ( ; )
+--------------------------------------------------------------------------------
+KA 43 / 44 / 45;Taksaka YK;YK-GMR / GMR-YK / YK-GMR;07.30 - 13.35 / 14.00 - 20.10 / 21.05 - 03.15;08-Jul-26;P SS NG. 0 23 04 Yk;K1lux SS NG. 0 24 04;K1lux SS NG. 0 24 03;K1 SS NG. 0 23 38;K1 SS NG. 0 23 26;K1 SS NG. 0 23 29;K1 SS NG. 0 23 40;K1 SS NG. 0 23 28;M1 SS NG. 0 24 12;K1 SS NG. 0 24 20 Jak;K1 SS NG. 0 23 39;K1 SS NG. 0 23 37
+KA 7 / 8;Argo Lawu;SLO-GMR / GMR-SLO;08.30 - 15.35 / 20.45 - 03.49;08-Jul-26;P SS NG. 0 23 01 Slo;K1lux SS NG. 0 23 01;K1 SS NG. 0 23 01;K1 SS NG. 0 23 02;K1 SS NG. 0 23 03;K1 SS NG. 0 23 04;M1 SS NG. 0 23 01;K1 SS NG. 0 23 05;K1 SS NG. 0 23 06;K1 SS NG. 0 23 07;K1 SS NG. 0 23 08
+KA 91 / 92;Lodaya;SLO-BD / BD-SLO;07.00 - 15.30 / 19.00 - 03.30;08-Jul-26;P 0 19 01 Slo;K1 SS. 0 19 01;K1 SS. 0 19 02;K1 SS. 0 19 03;K1 SS. 0 19 04;M1 SS. 0 19 01;K3 SS. 0 19 01;K3 SS. 0 19 02;K3 SS. 0 19 03;K3 SS. 0 19 04
+KA 175 / 176;Sancaka;YK-SGU / SGU-YK;06.45 - 10.45 / 16.40 - 20.40;08-Jul-26;MP3 0 18 01 Yk;K1 0 18 01;K1 0 18 02;K1 0 18 03;K1 0 18 04;K3 0 18 01;K3 0 18 02;K3 0 18 03;K3 0 18 04
+KA 257B / 258B;Progo;LPN-PSE / PSE-LPN;15.10 - 23.45 / 22.30 - 07.10;08-Jul-26;MP3 SS NG. 0 24 01 Yk;K3 SS NG. 0 24 01;K3 SS NG. 0 24 02;K3 SS NG. 0 24 03;K3 SS NG. 0 24 04;K3 SS NG. 0 24 05;K3 SS NG. 0 24 06;K3 SS NG. 0 24 07;K3 SS NG. 0 24 08
+
+================================================================================
+CARA PAKAI DI WEB ADMIN:
+================================================================================
+1. Buka browser: http://localhost:8000/stamformasi/import
+2. Copy (salin) teks dari salah satu opsi di atas.
+3. Paste (tempel) ke kolom teks di Web Admin.
+4. Klik tombol "Proses & Simpan Stamformasi".
+5. Selesai! Seluruh data kereta, jam keberangkatan/kedatangan, relasi, dan formasi gerbong
+   akan otomatis masuk ke database dan langsung muncul di aplikasi mobile HP!
+================================================================================

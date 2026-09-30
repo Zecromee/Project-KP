@@ -1,0 +1,119 @@
+================================================================================
+          PANDUAN LENGKAP: BUILD APK, SHARE KE HP, DAN MENJALANKAN SISTEM
+            (Workstation Passenger Check List - Depo Kereta Yogyakarta)
+================================================================================
+
+================================================================================
+BAGIAN 1: CARA MEMBUAT FILE APLIKASI ANDROID (BUILD APK)
+================================================================================
+Lakukan langkah ini jika Anda baru saja mengubah kode Flutter dan ingin membuat
+file installer aplikasi (.apk) yang baru:
+
+1. Buka Terminal / PowerShell di laptop Anda.
+2. Masuk ke folder project mobile:
+   cd C:\Users\Daniel\OneDrive\Desktop\Project\wpcl_app
+
+3. Jalankan perintah pembuatan file APK:
+   flutter build apk --release
+
+4. Tunggu sekitar 1–2 menit sampai muncul tulisan:
+   "√ Built build\app\outputs\flutter-apk\app-release.apk"
+
+5. Lokasi File APK Jadi:
+   📂 C:\Users\Daniel\OneDrive\Desktop\Project\wpcl_app\build\app\outputs\flutter-apk\app-release.apk
+   (Atau file yang sudah disiapkan di: C:\Users\Daniel\OneDrive\Desktop\Project\WPCL_App.apk)
+
+================================================================================
+BAGIAN 2: CARA MENGIRIM (SHARE) & MEMASANG (INSTALL) DI HP TANPA KABEL
+================================================================================
+
+--- METODE A: LEWAT WHATSAPP WEB (PALING MUDAH & CEPAT) ---
+1. Buka WhatsApp Web di browser laptop Anda (web.whatsapp.com).
+2. Buka chat ke nomor WhatsApp Anda sendiri (atau ke grup/teman).
+3. Klik tombol Lampirkan (Ikon Klip Kertas 📎) di samping kolom chat.
+4. Pilih "Dokumen".
+5. Cari dan pilih file "WPCL_App.apk" (atau "app-release.apk"), lalu klik KIRIM.
+6. Di HP Anda:
+   - Buka WhatsApp dan download file "WPCL_App.apk" tersebut.
+   - Tekan file yang sudah selesai didownload, lalu klik "Install".
+   - Jika muncul peringatan keamanan "Izinkan dari sumber ini" / "Play Protect",
+     pilih "Izinkan" atau "Tetap Install (Install Anyway)".
+7. Selesai! Aplikasi "WPCL" sekarang sudah terpasang permanen di menu HP Anda.
+
+--- METODE B: LEWAT GOOGLE DRIVE ---
+1. Buka drive.google.com di laptop Anda.
+2. Upload file "WPCL_App.apk".
+3. Buka aplikasi Google Drive di HP Anda, tekan file tersebut lalu klik "Install".
+
+================================================================================
+BAGIAN 3: CARA MENJALANKAN PROGRAM (RUN) AGAR HP BISA MENGAMBIL DATA
+================================================================================
+
+--------------------------------------------------------------------------------
+LANGKAH 1: NYALAKAN DATABASE (LARAGON)
+--------------------------------------------------------------------------------
+1. Buka aplikasi Laragon di laptop Anda.
+2. Klik tombol "Start All" (Pastikan Apache dan MySQL berwarna hijau/aktif).
+
+--------------------------------------------------------------------------------
+LANGKAH 2: JALANKAN SERVER BACKEND LARAVEL
+--------------------------------------------------------------------------------
+1. Buka Terminal / PowerShell di laptop:
+   cd C:\Users\Daniel\OneDrive\Desktop\Project\wpcl-api
+   php artisan serve --host=0.0.0.0 --port=8000
+
+   (Biarkan terminal ini tetap terbuka selama aplikasi digunakan).
+
+--------------------------------------------------------------------------------
+LANGKAH 3: BUKA APLIKASI DI HP & HUBUNGKAN KE LAPTOP
+--------------------------------------------------------------------------------
+Pilih salah satu kondisi jaringan di bawah ini:
+
+KONDISI A: HP DAN LAPTOP DALAM 1 WI-FI / HOTSPOT YANG SAMA (DIREKOMENDASIKAN)
+1. Pastikan HP dan Laptop terhubung ke Wi-Fi yang sama (atau Laptop terhubung ke Hotspot HP).
+2. Buka aplikasi "WPCL" di HP Anda.
+3. Di layar utama, tekan Ikon Gerigi (⚙️) "Pengaturan Server" di pojok kanan atas.
+4. Tekan tombol "Reset Wi-Fi" (otomatis terisi: http://10.11.4.223:8000/api).
+5. Tekan "Simpan".
+6. Klik tombol "Mulai Pemeriksaan", semua data kereta langsung muncul!
+
+KONDISI B: HP MENGGUNAKAN PAKET DATA SELULER 4G/5G (BEDA JARINGAN / TUNNEL)
+1. Di laptop, buka folder Project lalu KLIK 2X file:
+   👉 `START_ONLINE_TUNNEL.bat`
+2. Tunggu 5 detik, di layar terminal hitam akan muncul link publik, contoh:
+   https://cheaper-berlin-many-mills.trycloudflare.com
+   (Salin link https tersebut).
+3. Buka aplikasi "WPCL" di HP Anda.
+4. Tekan Ikon Gerigi (⚙️) di pojok kanan atas.
+5. Tempel link tersebut (misal: https://cheaper-berlin-many-mills.trycloudflare.com/api).
+6. Tekan "Simpan".
+7. Selesai! Aplikasi HP langsung terhubung secara online dari mana saja.
+
+================================================================================
+BAGIAN 4: CARA MENGAKSES WEBSITE ADMIN PORTAL DI LAPTOP
+================================================================================
+Buka browser (Google Chrome) di laptop Anda, lalu buka:
+👉 http://localhost:8000
+
+Fitur-Fitur Website Admin:
+1. Dashboard (/dashboard):
+   - Ringkasan statistik pemeriksaan sarana dan grafik aktivitas.
+2. Riwayat & Monitoring (/pemeriksaan):
+   - Daftar riwayat pengecekan dengan filter pencarian tanggal & kereta.
+   - Tombol Aksi: Lihat Detail (Mata), Edit Data (Pensil), Cetak PDF (Printer), Hapus.
+3. Edit Pemeriksaan (/pemeriksaan/{id}/edit):
+   - Memperbaiki/mengubah data petugas, pejabat, dan status tiap gerbong langsung dari web.
+4. Cetak PDF Resmi A4 Landscape (/pemeriksaan/{id}/print):
+   - Format standar KAI dengan logo resmi, tabel fit 100% ke kanan, dan status "Baik/Rusak/Tiada".
+5. Kelola Pejabat Penandatangan (/pejabat):
+   - Master data pejabat (Manager IT / Asmen IT Support).
+6. Kelola Stamformasi Kereta (/stamformasi):
+   - Import formasi susunan gerbong kereta langsung dari file Excel/CSV dengan fitur Auto-Transpose.
+
+================================================================================
+RANGKUMAN PERINTAH CEPAT (CHEAT SHEET)
+================================================================================
+1. Jalankan Backend  : php artisan serve --host=0.0.0.0 --port=8000
+2. Build Ulang APK   : cd wpcl_app && flutter build apk --release
+3. Jalankan Debugging: cd wpcl_app && flutter run
+================================================================================
